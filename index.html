@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Slot Machine</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .slot-machine {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 20px;
+        }
+        .slot {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+        .ford {
+            display: none;
+            font-size: 40px;
+            color: red;
+        }
+        .ford.show {
+            display: block;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Slot Machine</h1>
+    <div class="slot-machine">
+        <img class="slot" id="slot1" src="" alt="Slot 1">
+        <img class="slot" id="slot2" src="" alt="Slot 2">
+        <img class="slot" id="slot3" src="" alt="Slot 3">
+    </div>
+    <div class="ford">
+        撩妹王 Ford !!!!!
+    </div>
+    <button onclick="spin()">Spin</button>
+    <script>
+        const images = ["image1.png", "image2.png", "image3.png"];
+
+        function spin() {
+            const ford = document.querySelector('.ford')
+            const slot1 = images[Math.floor(Math.random() * images.length)]
+            const slot2 = images[Math.floor(Math.random() * images.length)]
+            const slot3 = images[Math.floor(Math.random() * images.length)]
+
+            const isEqual = slot1 === slot2 && slot1 === slot3
+            if(isEqual) ford.classList.add('show')
+
+            document.getElementById("slot1").src = slot1
+            document.getElementById("slot2").src = slot2
+            document.getElementById("slot3").src = slot3
+        }
+    </script>
+    <script>
+        spin()
+    </script>
+</body>
+</html>
