@@ -57,7 +57,11 @@
             const slot3 = images[Math.floor(Math.random() * images.length)]
 
             const isEqual = slot1 === slot2 && slot1 === slot3
-            if(isEqual) ford.classList.add('show')
+            if(isEqual) {
+                ford.classList.add('show')
+            } else {
+                ford.classList.remove('show')
+            }
 
             document.getElementById("slot1").src = slot1
             document.getElementById("slot2").src = slot2
